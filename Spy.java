@@ -1,5 +1,5 @@
 public class Spy {
-    public static int spyCount = 0;
+    private static int spyCount = 0;
     private int id;
 
     public Spy (int id) {
