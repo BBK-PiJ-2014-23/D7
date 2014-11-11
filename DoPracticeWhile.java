@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class DoPracticeWhile {
     public static void main(String[] args) {
         int students = 0;
@@ -6,10 +8,11 @@ public class DoPracticeWhile {
         int passes = 0;
         int fails = 0;
         int invalids = 0;
+        Scanner sc = new Scanner(System.in);
         
         do {
             System.out.print("Input a mark: ");
-            mark = Integer.parseInt(System.console().readLine());
+            mark = Integer.parseInt(sc.next());
             if (mark < -1 || mark > 100) {
                 invalids++;
             } else if (mark >= 70) {
