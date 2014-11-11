@@ -36,4 +36,21 @@ public class Patient {
             nextPatient.printPatients();
         }
     }
+
+    public int patientsLengthIteratively() {
+        int patientsCounter = 1;
+        while (nextPatient != null) {
+            patientsCounter++;
+            nextPatient = nextPatient.nextPatient;
+        }
+        return patientsCounter;
+    }
+
+    public int patientsLengthRecursively() {
+        if (nextPatient == null) {
+            return 1;
+        } else {
+            return 1 + nextPatient.patientsLengthRecursively();
+        }
+    }
 }
