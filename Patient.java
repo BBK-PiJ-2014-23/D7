@@ -3,17 +3,20 @@ public class Patient {
     private int age;
     private String illness;
     private Patient nextPatient;
+    private Patient lastPatient;
 
     public Patient(String name, int age, String illness) {
         this.name = name;
         this.age = age;
         this.illness = illness;
         this.nextPatient = null;
+        this.lastPatient = null;
     }
 
     public void addPatient(Patient newPatient) {
         if (nextPatient == null) {
             nextPatient = newPatient;
+            nextPatient.lastPatient = this;
         } else {
             nextPatient.addPatient(newPatient);
         }
@@ -22,8 +25,12 @@ public class Patient {
     public boolean deletePatient(Patient patient) {
         if (nextPatient == null) {
             return false;
-        } else if (nextPatient.name.equals(patient.name)) {
+        } else if (nextPatient.name.equals(patient.name) && nextPatient.nextPatient != null) {
             nextPatient = nextPatient.nextPatient;
+            nextPatient.lastPatient = this;
+            return true;
+        } else if (nextPatient.name.equals(patient.name) && nextPatient.nextPatient == null) {
+            nextPatient = null;
             return true;
         } else {
             return nextPatient.deletePatient(patient);
@@ -34,6 +41,15 @@ public class Patient {
         System.out.println("Patient: " + name + ", age: " + age + ", illness: " + illness);
         if (nextPatient != null) {
             nextPatient.printPatients();
+        }
+    }
+
+    public void printPatientsBackwards() {
+        if (nextPatient == null) {
+            System.out.println("Patient: " + name + ", age: " + age + ", illness: " + illness);
+        } else {
+            nextPatient.printPatientsBackwards();
+            System.out.println("Patient: " + name + ", age: " + age + ", illness: " + illness);
         }
     }
 
