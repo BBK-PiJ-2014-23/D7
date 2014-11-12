@@ -24,7 +24,7 @@ public class QueueLength {
         patientList.printPatients();
         System.out.println();
         System.out.println(patientList.patientsLengthRecursively());
-        System.out.println(patientList.patientsLengthIteratively());
+        //System.out.println(patientList.patientsLengthIteratively());
         System.out.println();
 
         patientList.deletePatient(p5);
@@ -33,7 +33,7 @@ public class QueueLength {
         patientList.printPatients();
         System.out.println();
         System.out.println(patientList.patientsLengthRecursively());
-        System.out.println(patientList.patientsLengthIteratively());
+        //System.out.println(patientList.patientsLengthIteratively());
         System.out.println();
 
         patientList = p2;
@@ -41,7 +41,7 @@ public class QueueLength {
         patientList.printPatients();
         System.out.println();
         System.out.println(patientList.patientsLengthRecursively());
-        System.out.println(patientList.patientsLengthIteratively());
+        //System.out.println(patientList.patientsLengthIteratively());
         System.out.println();
     }
 }
