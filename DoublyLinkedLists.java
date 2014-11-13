@@ -47,13 +47,22 @@ public class DoublyLinkedLists {
         System.out.println();
         System.out.println(patientList.patientsLengthRecursively());
         System.out.println();
-        
+
         Patient p99 = new Patient("Tom", 39, "Lack of Hunmour");
         patientList.addPatient(p99);
-        
+
         patientList.printPatients();
         System.out.println();
         patientList.printPatientsBackwards();
+        System.out.println();
+        System.out.println(patientList.patientsLengthRecursively());
+        System.out.println();
+
+        Patient p66 = new Patient("Test", 32, "None");
+        patientList.deletePatient(p66);
+
+        patientList.printPatients();
+        System.out.println();
         System.out.println();
         System.out.println(patientList.patientsLengthRecursively());
         System.out.println();
