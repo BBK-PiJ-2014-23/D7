@@ -3,20 +3,20 @@ public class Patient {
     private int age;
     private String illness;
     private Patient nextPatient;
-    private Patient lastPatient;
+    private Patient previousPatient;
 
     public Patient(String name, int age, String illness) {
         this.name = name;
         this.age = age;
         this.illness = illness;
         this.nextPatient = null;
-        this.lastPatient = null;
+        this.previousPatient = null;
     }
 
     public void addPatient(Patient newPatient) {
         if (nextPatient == null) {
             nextPatient = newPatient;
-            nextPatient.lastPatient = this;
+            nextPatient.previousPatient = this;
         } else {
             nextPatient.addPatient(newPatient);
         }
@@ -27,7 +27,7 @@ public class Patient {
             return false;
         } else if (nextPatient.name.equals(patient.name) && nextPatient.nextPatient != null) {
             nextPatient = nextPatient.nextPatient;
-            nextPatient.lastPatient = this;
+            nextPatient.previousPatient = this;
             return true;
         } else if (nextPatient.name.equals(patient.name) && nextPatient.nextPatient == null) {
             nextPatient = null;
